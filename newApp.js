@@ -2,34 +2,29 @@ counter1 = 0;
 counter2 = 0;
 c1=0;
 c2=0;
-
-/*function incMale(c1)
-{
-    this.maleCount = maleCount + c1;
-    Session.set('c1' , 0);
-}*/
-
 maleCount = 0;
 femaleCount = 0;
+clk = 0
+//maleCount = cnt[0].maleCount;
+//femaleCount = cnt[0].femaleCount;
 
 if (Meteor.isClient) {
-  // counter starts at 0
   Session.setDefault('counter1', 0);
   Session.setDefault('counter2', 0);
   Session.set('maleCount', maleCount);
   Session.set('femaleCount', femaleCount);
-    
-    
-
+    var rec = post.find('1').fetch();
+    console.log(rec[0].maleCount);
+    //console.log(rec[1].maleCount);
+    maleCount = rec[0].maleCount;
+    console.log(rec[0].maleCount);
   Template.hello.helpers({
 
     counter1: function () {
       c1 = Session.get('counter1');
-      //Session.set('maleCount', maleCount+c1);
     
       return c1;
                          
-      //return counter1;
     console.log(c1);
     
 
@@ -39,7 +34,6 @@ if (Meteor.isClient) {
       c2 = Session.get('counter2');
       return c2;
       
-      //return counter2;
     },
                          
     maleCount: function() {
@@ -55,10 +49,11 @@ if (Meteor.isClient) {
 
     Template.hello.events({
     'click #maleb': function () {
+
       // increment the counter when button is clicked
       Session.set('counter1', Session.get('counter1') + 1);
-        //incMale(c1);
-      console.log(counter1);
+      clk++;
+      console.log(clk);
       
     },
 
@@ -80,7 +75,7 @@ if (Meteor.isClient) {
 
     'mouseleave #maleb' : function() {
     Session.set('maleCount', maleCount);
-                          
+    post.update({_id:"1"} , {$set: {'maleCount' : clk}});
     },
                           
     'mouseleave #femaleb' : function() {
@@ -102,6 +97,7 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
+    
   });
 }
 
