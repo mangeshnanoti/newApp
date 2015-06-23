@@ -1,0 +1,31 @@
+<head>
+  <title>newApp</title>
+</head>
+
+<body>
+  <h1>Where do you wanna go?!</h1>
+
+  {{> hello}}
+
+</body>
+
+<template name="hello">
+ <table>
+<tr>
+<td>male</td>	
+<td><button id = 'maleb'>male+</button></td>
+<td><button id = 'malec'>male-</button></td>
+<td>{{maleCount}}</td>
+</tr>
+
+<tr>
+<td>female</td>	
+<td><button id = 'femaleb'>female+</button></td>
+<td><button id = 'femalec'>female-</button></td>
+<td>{{femaleCount}}</td>
+</tr>
+ </table>
+
+ {{counter1}}
+ {{counter2}}
+</template>
