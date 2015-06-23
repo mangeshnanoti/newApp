@@ -14,8 +14,6 @@ femaleCount = 0;
 
 if (Meteor.isClient) {
   // counter starts at 0
-  //maleCount = post.findOne('maleCount').fetch();
-  //femaleCount = post.findOne('femaleCount').fetch();;
   Session.setDefault('counter1', 0);
   Session.setDefault('counter2', 0);
   Session.set('maleCount', maleCount);
@@ -58,11 +56,8 @@ if (Meteor.isClient) {
     Template.hello.events({
     'click #maleb': function () {
       // increment the counter when button is clicked
-                          //maleCount=maleCount+c1
       Session.set('counter1', Session.get('counter1') + 1);
         //incMale(c1);
-                        //Session.set('maleCount', maleCount+c1);
-     // a = post.insert({'maleCount' : counter1});
       console.log(counter1);
       
     },
@@ -70,25 +65,21 @@ if (Meteor.isClient) {
     'click #femaleb': function () {
       // increment the counter when button is clicked
       Session.set('counter2', Session.get('counter2') + 1);
-     // post.insert({'maleCount' : counter2});
     },
 
     'click #malec': function () {
       // increment the counter when button is clicked
       Session.set('counter1', Session.get('counter1') - 1);
-     // post.insert({'maleCount' : counter1});
 
     },
 
     'click #femalec': function () {
       // increment the counter when button is clicked
       Session.set('counter2', Session.get('counter2') - 1);
-     // post.insert({'femaleCount' : counter2});
     },
 
     'mouseleave #maleb' : function() {
     Session.set('maleCount', maleCount);
-      //Session.set('maleCount', mc);
                           
     },
                           
@@ -111,8 +102,6 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    // code to run on server at startup
-   // maleCount = post.findOne('maleCount');
   });
 }
 
