@@ -1,7 +1,3 @@
-/*post = new Mongo.Collection("posts");
-
-post = [{'maleCount':10},{'femaleCount':10}];*/
-
 counter1 = 0;
 counter2 = 0;
 c1=0;
@@ -13,13 +9,6 @@ c2=0;
     Session.set('c1' , 0);
 }*/
 
-
-//post.attachSchema(ManCount);
-
-// post.createCollection('malec');
-// post.createCollection('femalec');
-/*mc = post.findOne('maleCount');
-fc = post.findOne('femaleCount');*/
 maleCount = 0;
 femaleCount = 0;
 
