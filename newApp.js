@@ -13,7 +13,7 @@ if (Meteor.isClient) {
   Session.setDefault('counter2', 0);
   Session.set('maleCount', maleCount);
   Session.set('femaleCount', femaleCount);
-    var rec = post.find('1').fetch();
+    rec = post.find('1').fetch();
     console.log(rec[0].maleCount);
     //console.log(rec[1].maleCount);
     maleCount = rec[0].maleCount;
@@ -76,6 +76,7 @@ if (Meteor.isClient) {
     'mouseleave #maleb' : function() {
     Session.set('maleCount', maleCount);
     post.update({_id:"1"} , {$set: {'maleCount' : clk}});
+    //Session.set('maleCount' , clk);
     },
                           
     'mouseleave #femaleb' : function() {
@@ -87,7 +88,7 @@ if (Meteor.isClient) {
     },
                           
     'mouseleave #femalec' : function() {
-    Session.set('femaleCount', mc);
+    Session.set('femaleCount', fc);
     }
 
 
