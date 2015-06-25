@@ -88,7 +88,7 @@ counter2 = femaleCount;
       Session.set('counter1', Session.get('counter1') - 1);
       clk--;
 
-      Posts.update({_id:"1"} , {$set: { 'maleCount' : clk } } );
+      Posts.update({_id:1} , {$set: { 'maleCount' : clk } } );
 
     },
 
@@ -97,7 +97,7 @@ counter2 = femaleCount;
       // increment the counter when button is clicked
       Session.set('counter2', Session.get('counter2') - 1);
       clk1--;
-      Posts.update({_id:"1"} , {$set: { 'femaleCount' : clk1 } });
+      Posts.update({_id:1} , {$set: { 'femaleCount' : clk1 } });
     },
 
     'mouseleave #maleb' : function() {
