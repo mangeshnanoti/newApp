@@ -12,7 +12,6 @@ if(Posts.find().count() === 0)
 	//post.insert({_id:"1" , 'maleCount' : 'maleCount' , 'femaleCount' : 'femaleCount'});
 	//post.update(uid,{_id:"1"}, {$set : {_id:'1','maleCount ' : 'maleCount' , 'femaleCount' : 'femaleCount'} } , {upsert : true});
 }
-
       
 });
 }

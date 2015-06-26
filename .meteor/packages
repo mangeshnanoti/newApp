@@ -9,3 +9,5 @@ autopublish
 insecure
 aldeed:collection2
 mongo
+aldeed:autoform
+aldeed:simple-schema

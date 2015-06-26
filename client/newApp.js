@@ -6,19 +6,27 @@ x=0;
 y=0;
 
 
-maleCount = 0;
-femaleCount = 0;
- 
+var maleCount = 0;
+var femaleCount = 0;
+
 clk = 0;
 clk1 = 0;
-
-
-if (Meteor.isClient) {
-cnt = Posts.findOne();
+cnt = new Object;
+try{
+cnt = Posts.findOne(1);
 maleCount = cnt.maleCount;
 femaleCount = cnt.femaleCount;
 counter1 = maleCount;
 counter2 = femaleCount;
+}
+catch(e)
+
+{
+  console.log(e)
+}
+
+
+if (Meteor.isClient) {
 
 
   Session.setDefault('counter1', counter1);
@@ -114,7 +122,7 @@ counter2 = femaleCount;
                           
     'mouseleave #femaleb' : function() {
     Session.set('femaleCount', fc);
-    //Posts.update({_id:"1"} , {$set: {'femaleCount' : clk1 } } );
+    Posts.update({_id:1} , {$set: {'femaleCount' : femaleCount } } );
     },
                           
     'mouseleave #malec' : function() {
