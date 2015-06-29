@@ -5,29 +5,10 @@ c2=0;
 x=0;
 y=0;
 
-
-var maleCount = 0;
-var femaleCount = 0;
-
 clk = 0;
 clk1 = 0;
-cnt = new Object;
-try{
-cnt = Posts.findOne(1);
-maleCount = cnt.maleCount;
-femaleCount = cnt.femaleCount;
-counter1 = maleCount;
-counter2 = femaleCount;
-}
-catch(e)
-
-{
-  console.log(e)
-}
-
 
 if (Meteor.isClient) {
-
 
   Session.setDefault('counter1', counter1);
   Session.setDefault('counter2', counter2);
@@ -69,15 +50,13 @@ if (Meteor.isClient) {
 
     Template.hello.events({
     'click #maleb': function () {
-      //getCount1();
-      
-      // increment the counter when button is clicked
+
       Session.set('counter1', Session.get('counter1') + 1);
       clk++;
       console.log("Number of Clicks - " + clk);
       maleCount++;
 
-      Posts.update({_id:1} , {$set: { 'maleCount' : clk } });
+      Posts.update({_id:'1'} , {$set: { 'maleCount' : clk } });
       
     },
 
@@ -87,7 +66,7 @@ if (Meteor.isClient) {
       Session.set('counter2', Session.get('counter2') + 1);
       clk1++;
       femaleCount++;
-      Posts.update({_id:1} , {$set: { 'femaleCount' : clk1 } } );
+      Posts.update({_id:'1'} , {$set: { 'femaleCount' : clk1 } } );
     },
 
     'click #malec': function () {
@@ -96,7 +75,7 @@ if (Meteor.isClient) {
       Session.set('counter1', Session.get('counter1') - 1);
       clk--;
 
-      Posts.update({_id:1} , {$set: { 'maleCount' : clk } } );
+      Posts.update({_id:'1'} , {$set: { 'maleCount' : clk } } );
 
     },
 
@@ -105,13 +84,13 @@ if (Meteor.isClient) {
       // increment the counter when button is clicked
       Session.set('counter2', Session.get('counter2') - 1);
       clk1--;
-      Posts.update({_id:1} , {$set: { 'femaleCount' : clk1 } });
+      Posts.update({_id:'1'} , {$set: { 'femaleCount' : clk1 } });
     },
 
     'mouseleave #maleb' : function() {
     //rec = getCount();
 
-    //Posts.update({_id:"1"} , {$set: {'maleCount' : clk}} );
+    Posts.update({_id:"1"} , {$set: {'maleCount' : clk}} );
     //clk = clk+maleCount;
     //Posts.update({_id:"0"} , {$set: {'maleCount' : clk}});
 
@@ -121,8 +100,8 @@ if (Meteor.isClient) {
     },
                           
     'mouseleave #femaleb' : function() {
-    Session.set('femaleCount', fc);
-    Posts.update({_id:1} , {$set: {'femaleCount' : femaleCount } } );
+    Session.set('femaleCount', femaleCount);
+    Posts.update({_id:'1'} , {$set: {'femaleCount' : clk1 } } );
     },
                           
     'mouseleave #malec' : function() {
