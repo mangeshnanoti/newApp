@@ -1,5 +1,5 @@
-counter1 = 0;
-counter2 = 0;
+counter1 = maleCount;
+counter2 = femaleCount;
 c1=0;
 c2=0; 
 x=0;
@@ -12,8 +12,8 @@ if (Meteor.isClient) {
 
   Session.setDefault('counter1', counter1);
   Session.setDefault('counter2', counter2);
-  Session.set('maleCount', maleCount);
-  Session.set('femaleCount', femaleCount);
+  Session.set('maleCount', oldmCount);
+  Session.set('femaleCount', oldfCount);
   Template.hello.helpers({
 
     counter1: function () {
